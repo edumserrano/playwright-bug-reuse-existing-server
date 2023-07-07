@@ -1,5 +1,11 @@
 # Playwright bug with reuseExistingServer and node 18
 
+- [Bug description](#bug-description)
+- [Steps](#steps)
+- [Expected behavior](#expected-behavior)
+- [Notes](#notes)
+- [Fix](#fix)
+
 This is a demo repo to for [[BUG] webServer.reuseExistingServer is broken on node 18 #24101](https://github.com/microsoft/playwright/issues/24101).
 
 ## Bug description
@@ -50,3 +56,7 @@ When running on node `18.16.0` it should NOT try to execute the `webServer.comma
 ## Notes
 
 I used [nvm](https://github.com/nvm-sh/nvm) to swap between node versions whilst testing this.
+
+## Fix
+
+The fix was making sure the `ng serve` would bind to `127.0.0.1` as described in [this comment](https://github.com/microsoft/playwright/issues/24101#issuecomment-1625968268). The problem occurs because [Node migrated to ipv6 in Node 18](https://github.com/node-fetch/node-fetch/issues/1624#issuecomment-1407717012) as pointed out by [pavelfeldman](https://github.com/microsoft/playwright/issues/24101#issuecomment-1625703826).
