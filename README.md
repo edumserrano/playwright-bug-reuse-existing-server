@@ -1,6 +1,8 @@
 # Playwright bug with reuseExistingServer and node 18
 
-## Description
+This is a demo repo to for [[BUG] webServer.reuseExistingServer is broken on node 18 #24101](https://github.com/microsoft/playwright/issues/24101).
+
+## Bug description
 
 When setting `webServer.reuseExistingServer` to `true` on the [playwright.config.ts](/playwright.config.ts) it still executes the `webServer.command` when running on node `18.16.0`. 
 
